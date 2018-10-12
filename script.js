@@ -42,10 +42,19 @@ function totalCells(){
 }
 
 // Day 5
-// colString ex.: 'A3' or 'C4' or 'D8' 
-function convertColumn(colString){ 
+// cellString ex.: "A3" or "C4" or "D8" 
+function convertColumn(cellString){ 
   var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-  var colChar = colString.charAt(0);
+  var colChar = cellString.charAt(0);
   var col = letters.indexOf(colChar);
   return col
+}
+
+// Day 6
+// cellString ex.: "A3" or "C4" or "D8" 
+function lightCell(cellString){ 
+  var col = convertColumn(cellString);
+  var row = Number(cellString.charAt(1))-1;
+  var cellValue = GRID[row][col]; 
+  return cellValue
 }
