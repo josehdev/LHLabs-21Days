@@ -61,9 +61,21 @@ function lightCell(cellString){
 
 // Day 7
 // cellString ex.: "A3" or "C4" or "D8" 
+function cellCompareStr(cellString, str){ 
+  var cellValue = lightCell(cellString); 
+  var result = cellValue == str;
+  return result;
+}
+
+// cellString ex.: "A3" or "C4" or "D8" 
 function isRock(cellString){ 
   var rock = '^'
-  var cellValue = lightCell(cellString); 
-  var isCellRock = cellValue == rock;
-  return isCellRock;
+  return cellCompareStr(cellString, rock);
+}
+
+// Day 8
+// cellString ex.: "A3" or "C4" or "D8" 
+function isCurrent(cellString){ 
+  var current = '~'
+  return cellCompareStr(cellString, current);
 }
