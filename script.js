@@ -47,7 +47,7 @@ function convertColumn(cellString){
   var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
   var colChar = cellString.charAt(0);
   var col = letters.indexOf(colChar);
-  return col
+  return col;
 }
 
 // Day 6
@@ -56,5 +56,14 @@ function lightCell(cellString){
   var col = convertColumn(cellString);
   var row = Number(cellString.charAt(1))-1;
   var cellValue = GRID[row][col]; 
-  return cellValue
+  return cellValue;
+}
+
+// Day 7
+// cellString ex.: "A3" or "C4" or "D8" 
+function isRock(cellString){ 
+  var rock = '^'
+  var cellValue = lightCell(cellString); 
+  var isCellRock = cellValue == rock;
+  return isCellRock;
 }
