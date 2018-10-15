@@ -79,3 +79,10 @@ function isCurrent(cellString){
   var current = '~'
   return cellCompareStr(cellString, current);
 }
+
+// Day 9
+// cellString ex.: "A3" or "C4" or "D8" 
+function isShip(cellString){ 
+  var ship = 'v'
+  return cellCompareStr(cellString, ship);
+}
