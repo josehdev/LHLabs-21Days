@@ -12,16 +12,15 @@
       ["", "^", "", "", "~", "~", "", "", "", ""],
     ];
 
-
 // Day 1
 function countRows(){
-  rows = GRID.lenght;
+  rows = GRID.length;
   return rows;
 }
 
 // Day 2
 function countColumns(){
-  cols = GRID[0].lenght;
+  cols = GRID[0].length;
   return cols;
 }
 
@@ -69,20 +68,38 @@ function cellCompareStr(cellString, str){
 
 // cellString ex.: "A3" or "C4" or "D8" 
 function isRock(cellString){ 
-  var rock = '^'
+  var rock = '^';
   return cellCompareStr(cellString, rock);
 }
 
 // Day 8
 // cellString ex.: "A3" or "C4" or "D8" 
 function isCurrent(cellString){ 
-  var current = '~'
+  var current = '~';
   return cellCompareStr(cellString, current);
 }
-
+  
 // Day 9
 // cellString ex.: "A3" or "C4" or "D8" 
 function isShip(cellString){ 
-  var ship = 'v'
+  var ship = 'v';
   return cellCompareStr(cellString, ship);
+}
+
+// Day 10
+function lightRow(rowIndex){ 
+  var row = GRID[rowIndex - 1];
+  return row;
+}
+
+// Day 11
+function lightColumn(colLetter){ 
+  var colIndex = convertColumn(colLetter);
+  var rowsCount = countRows();
+  var col = [];
+  for (i = 0; i < rowsCount; i++) {
+    row = lightRow(i+1);
+    col.push(row[colIndex]);
+  }
+  return col;
 }
