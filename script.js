@@ -49,13 +49,17 @@ function convertColumn(cellString){
   return col;
 }
 
-// Day 6
+// Day 6 // Day 12 enhancements
 // cellString ex.: "A3" or "C4" or "D8" 
 function lightCell(cellString){ 
   var col = convertColumn(cellString);
-  var row = Number(cellString.charAt(1))-1;
-  var cellValue = GRID[row][col]; 
-  return cellValue;
+  var row = Number(cellString.substring(1))-1;
+  if (col < countColumns() && row >= 0 && row < countRows()) {
+    var cellValue = GRID[row][col]; 
+    return cellValue;
+  } else {
+    return false
+  } 
 }
 
 // Day 7
