@@ -107,3 +107,58 @@ function lightColumn(colLetter){
   }
   return col;
 }
+
+// Day 13
+function allRocksJH(){ 
+  var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  var rowsCount = countRows();
+  var colsCount = countColumns();
+  var rocks = [];
+  for (i = 0; i < rowsCount; i++) {
+    for (j = 0; j < rowsCount; j++) {
+      var coordinate = letters[j]+(i+1); 	
+      if (isRock(coordinate)) {
+        rocks.push(coordinate);
+      }
+    }
+  }  
+  return rocks;
+}
+  
+function allCurrentsJH(){ 
+  var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  var rowsCount = countRows();
+  var colsCount = countColumns();
+  var currents = [];
+  for (i = 0; i < rowsCount; i++) {
+    for (j = 0; j < rowsCount; j++) {
+      var coordinate = letters[j]+(i+1); 	
+      if (isCurrent(coordinate)) {
+        currents.push(coordinate);
+      }
+    }
+  }  
+  return currents;
+}  
+
+
+function columnOfIndex(columnIndex){
+	return String.fromCharCode(65 + parseInt(columnIndex));
+}
+
+function allCoordinates(){
+	let coordinates = [];
+
+  for (let row=1; row<=countRows(); row++){
+  	for (let columnIndex=0; columnIndex<countColumns(); columnIndex++){
+    		coordinates.push(columnOfIndex(columnIndex) + row);
+    }
+  }
+	return coordinates;
+}
+
+function allRocks(){
+	return allCoordinates().filter(coordinate => {
+  	return isRock(coordinate);
+  });
+}
