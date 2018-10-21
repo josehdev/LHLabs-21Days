@@ -109,13 +109,13 @@ function lightColumn(colLetter){
 }
 
 // Day 13
-function allRocksJH(){ 
+function allRocks(){ 
   var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
   var rowsCount = countRows();
   var colsCount = countColumns();
   var rocks = [];
   for (i = 0; i < rowsCount; i++) {
-    for (j = 0; j < rowsCount; j++) {
+    for (j = 0; j < colsCount; j++) {
       var coordinate = letters[j]+(i+1); 	
       if (isRock(coordinate)) {
         rocks.push(coordinate);
@@ -125,13 +125,13 @@ function allRocksJH(){
   return rocks;
 }
   
-function allCurrentsJH(){ 
+function allCurrents(){ 
   var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
   var rowsCount = countRows();
   var colsCount = countColumns();
   var currents = [];
   for (i = 0; i < rowsCount; i++) {
-    for (j = 0; j < rowsCount; j++) {
+    for (j = 0; j < colsCount; j++) {
       var coordinate = letters[j]+(i+1); 	
       if (isCurrent(coordinate)) {
         currents.push(coordinate);
@@ -157,8 +157,25 @@ function allCoordinates(){
 	return coordinates;
 }
 
-function allRocks(){
+function allRocksAlt(){
 	return allCoordinates().filter(coordinate => {
   	return isRock(coordinate);
   });
+}
+
+// Day 14
+function allShips(){ 
+  var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  var rowsCount = countRows();
+  var colsCount = countColumns();
+  var ships = [];
+  for (i = 0; i < rowsCount; i++) {
+    for (j = 0; j < colsCount; j++) {
+      var coordinate = letters[j]+(i+1); 	
+      if (isShip(coordinate)) {
+        ships.push(coordinate);
+      }
+    }
+  }  
+  return ships;
 }
