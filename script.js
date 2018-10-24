@@ -179,3 +179,41 @@ function allShips(){
   }  
   return ships;
 }
+
+// Day 15
+function firstRock() {
+  let rocks = allRocks();
+  return rocks[0];
+}
+
+// Day 16
+function firstCurrent() {
+  let currents = allCurrents();
+  return currents[0];
+}
+
+//Day 17
+function shipReport() {
+  let result = [];
+  let ships = allShips();
+  
+  if (ships.length > 0) {
+    let topWestShip = ships[0];
+    let topEastShip = topWestShip;
+    for (i = 0; i < ships.length; i++) {
+      let col = convertColumn(ships[i]);
+      let westCol = convertColumn(topWestShip);
+      let eastCol = convertColumn(topEastShip);
+      if (col < westCol) {
+        topWestShip = ships[i];
+      }
+      if (col > eastCol) {
+        topEastShip = ships[i];
+      }
+    }
+    result.push(topWestShip);
+    result.push(topEastShip);
+  }
+  
+  return result;
+}  
