@@ -217,3 +217,15 @@ function shipReport() {
   
   return result;
 }  
+
+//Day 18
+// cellString ex.: "A3" or "C4" or "D8" 
+function howDangerous(cellString){ 
+  let result = 0;
+  if (isRock(cellString)) {
+    result = 100;
+  } else if (isCurrent(cellString)) {
+      result = 50;
+  }
+  return result;
+}
