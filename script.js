@@ -302,7 +302,10 @@ function allShips(){
   return ships;
 }
 
-
+//## Challenge #15
+//Here is an opportunity to prove how powerful your Lighthouse-powering skills are! Write a function called firstRock() which will 
+//return the coordinates of the first rock in your grid. Consider how you might use one of your previously written functions to simplify
+//your task!
 
 // Day 15
 function firstRock() {
@@ -310,11 +313,21 @@ function firstRock() {
   return rocks[0];
 }
 
+//## Challenge #16
+//That was outstanding! Now do the same thing with firstCurrent(). Don't reinvent the wheel here, re-use existing code. This is one of 
+//the most important skills you can build as a coder...er, uh, I mean Lighthouse operator.
+
 // Day 16
 function firstCurrent() {
   let currents = allCurrents();
   return currents[0];
 }
+
+//## Challenge #17
+//Transport Canada called back. They want something similar to what you did for firstRock() and firstCurrent() but they want both the 
+//first AND the last ship in your area.
+//Write a function called shipReport() which does not take any parameters, but will return an array of the coordinates of the ship 
+//furthest to the west (left) and east (right) of your GRID. (Example: shipReport() would return ['B3', 'I5'].)
 
 //Day 17
 function shipReport() {
@@ -342,6 +355,16 @@ function shipReport() {
   return result;
 }  
 
+//## Challenge #18
+//Ship captains are really starting to rely on you to plot their routes through your area. Your name is being sung in pubs and taverns 
+//up and down the coast. And this time, it's for the right reasons! The ship captains are starting to be curious about some of the cells
+//in your grid, and what they want is to know how dangerous a particular cell is. They know if ones are safe, but sometimes, they are 
+//willing to accept a bit of danger so that they can get a faster delivery time.
+//A cell is considered dangerous if there is a rock or a strong current in it. However, a cell with rocks in it would be 100% dangerous,
+//while strong currents are only 50% dangerous. Write a function called howDangerous() that will take a cell in the format 'G7' and 
+//return a number value for how dangerous the cell is. (Example: howDangerous('E2') will return 50 where howDangerous('E3') will 
+//return 100.)
+
 //Day 18
 // cellString ex.: "A3" or "C4" or "D8" 
 function howDangerous(cellString){ 
@@ -353,6 +376,15 @@ function howDangerous(cellString){
   }
   return result;
 }
+
+//## Challenge #19
+//It's time for monthly reporting to Lighthouse HQ. Your supervisor calls you and tells you that they need a report of what percentage 
+//of your grid is rocks and what percentage has strong currents. This data should be sent as an array of two number values, in that 
+//specific order.
+//Write a function percentageReport() that returns the right percentages. (Example: calling percentageReport() should return the 
+//following array: [9.00, 7.00], as 9% of your GRID is rocks, and 7% is currents.) Your grid produces nice easy integers. However, 
+//not all grids will. Just to be certain, make sure your results always return 2 decimal places. This will really help ALL the 
+//Lighthouse9000™ operators.
 
 //Day 19
 function percentageReport() {
@@ -366,6 +398,11 @@ function percentageReport() {
   }  
   return result;
 }
+
+//## Challenge #20
+//Lighthouse HQ also wants a report of the safety of your GRID. Write another function called `safetyReport()` which will return your 
+//GRID with all of the values replaced by the percentage for how dangerous they are. The percentages for how dangerous a cell is were 
+//established in question #18.
 
 //Day 20
 function safetyReport(){ 
