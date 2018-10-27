@@ -1,4 +1,33 @@
-// Initialize 
+// You are the responsible for managing the Lighthouse9000™ and making sure it runs as smoothly as possible. 
+// As the Lighthouse operator, you will need to solve coding challenges to power the lighthouse and keep passing ships 
+// (and their passengers) safe. 
+
+// GRID visualization:
+//         A   B   C   D   E   F   G   H   I   J
+//       +---+---+---+---+---+---+---+---+---+---+
+//    1  |   |   |   | ^ |   |   |   |   |   |   |
+//       +---+---+---+---+---+---+---+---+---+---+
+//    2  |   |   | v |   | ~ |   |   |   |   |   |
+//       +---+---+---+---+---+---+---+---+---+---+
+//    3  |   | v |   |   | ^ | ^ |   |   |   |   |
+//       +---+---+---+---+---+---+---+---+---+---+
+//    4  |   |   |   |   | ^ | ^ |   |   |   |   |
+//       +---+---+---+---+---+---+---+---+---+---+
+//    5  |   |   |   |   |   |   |   |   | v |   |
+//       +---+---+---+---+---+---+---+---+---+---+
+//    6  |   |   |   |   |   |   |   |   |   |   |
+//       +---+---+---+---+---+---+---+---+---+---+
+//    7  |   |   |   |   |   |   |   |   |   |   |
+//       +---+---+---+---+---+---+---+---+---+---+
+//    8  |   | ^ | ~ | ~ |   |   |   | ^ |   |   |
+//       +---+---+---+---+---+---+---+---+---+---+
+//    9  |   | ^ |   | ~ | ~ |   |   |   |   |   |
+//       +---+---+---+---+---+---+---+---+---+---+
+//    10 |   | ^ |   |   | ~ | ~ |   |   |   |   |
+//       +---+---+---+---+---+---+---+---+---+---+
+  
+
+// Initialize GRID
     const GRID = [
       ["", "", "", "^", "", "", "", "", "", ""],
       ["", "", "v", "", "~", "", "", "", "", ""],
@@ -11,6 +40,16 @@
       ["", "^", "", "~", "~", "", "", "", "", ""],
       ["", "^", "", "", "~", "~", "", "", "", ""],
     ];
+
+//## Challenge #1
+//As a lighthouse operator, your job is to both watch out for dangers in your area, such as rocks and strong currents, 
+//but also to be the knowledge expert for your area of the ocean. With this in mind, let's start using our coding skills to get 
+//some information about our GRID area. For starters, let's find out how many rows there are in our GRID.
+//Up above you have access to the printed-out grid, and the JS code for the grid. This is your grid, for your lighthouse.
+//Write a function called countRows() which will tell us the number of rows in our GRID. Remember that other lighthouse operators 
+//are going to be using this function, so it has to be able to work on a GRID of any size. It would be easy to write a function that 
+//just did return 10; but that wouldn't help operators with bigger or smaller areas!
+//You do NOT need to pass the GRID variable to the countRows() function, as it will be able to access it.
 
 // Day 1
 function countRows(){
@@ -228,4 +267,34 @@ function howDangerous(cellString){
       result = 50;
   }
   return result;
+}
+
+//Day 19
+function percentageReport() {
+  let result = [];
+  let totalCellsCount = totalCells();
+  if (totalCellsCount > 0) {
+    let totalRocksCount = allRocks().length;
+    let totalCurrentsCount = allCurrents().length;
+    result.push(((totalRocksCount/totalCellsCount)*100).toFixed(2));
+    result.push(((totalCurrentsCount/totalCellsCount)*100).toFixed(2));
+  }  
+  return result;
+}
+
+//Day 20
+function safetyReport(){ 
+  let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  let rowsCount = countRows();
+  let colsCount = countColumns();
+  let gridSafety = [];
+  for (i = 0; i < rowsCount; i++) {
+    let gridRow = [];
+    for (j = 0; j < colsCount; j++) {
+      var coordinate = letters[j]+(i+1); 	
+      gridRow.push(howDangerous(coordinate));
+    }
+    gridSafety.push(gridRow);
+  }  
+  return gridSafety;
 }
