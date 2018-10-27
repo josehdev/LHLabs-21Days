@@ -57,11 +57,26 @@ function countRows(){
   return rows;
 }
 
+//## Challenge #2
+//Now that we know how many rows our GRID area has, let's find out the number of columns. My sources at the Lighthouse9000™ company 
+//tell me that this shouldn't be too hard, but that you shouldn't overthink it.
+//Write a function called countColumns() that will tell us the number of columns in our GRID. Again, remember that this has to work 
+//for all the lighthouse operators out there, no matter what size their area is. Also, your code will still be able to see the GRID 
+//variable, and you won't need to pass it as an argument to the function.
+
 // Day 2
 function countColumns(){
   cols = GRID[0].length;
   return cols;
 }
+
+//## Challenge #3
+//Now that we can do rows and columns, let's find out how big the size of our GRID is. I checked in with the lead developer at a 
+//company I know of, and she told me that this is one of the areas where re-using code is a great idea.
+//Write a function called gridSize() that will tell you the size of your grid in the format width x height. Your function should 
+//return a string, and in this example, your function should return the string '10 x 10'. But you have to make sure that you figure 
+//that string out by actually measuring your grid! Your code should make sure that it uses your countRows() and countColumns() 
+//functions that you've already finished.
 
 // Day 3
 function gridSize(){
@@ -71,6 +86,13 @@ function gridSize(){
   return sizeText;
 }
 
+//## Challenge #4
+//Awesome job! Other lighthouse operators are jealous of your grid. Just to show off, let's write a new function for the system which 
+//will count up how many cells total there are. Given the code you just wrote, this should be pretty easy.
+//Write a new function called totalCells() which will return the total number of cells in your grid. For this grid, it should return 
+//100, but again make sure that is a calculated value and not just a number you type in for your function to return. We want to make 
+//all the other lighthouse operators jealous.
+
 // Day 4
 function totalCells(){
   var rows = countRows();
@@ -78,6 +100,14 @@ function totalCells(){
   var size = rows * cols;
   return size;
 }
+
+//## Challenge #5
+//Since our GRID is written in coordinates like A3 or D8, we need code that is going to be able to convert those coordinates to the 
+//numbers we need to fetch data out of the GRID array(s). All of the lighthouse operators have reported in and we know that their areas 
+//never go above Z.
+//Let's build a function called convertColumn() which, when given the coordinate as an argument, will return the number of the column.
+//For example, calling convertColumn('C4') should return 2 as the 'C' column is the third column, and since JavaScript arrays start 
+//at 0, that would make 2 the third column.
 
 // Day 5
 // cellString ex.: "A3" or "C4" or "D8" 
