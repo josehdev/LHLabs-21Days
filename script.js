@@ -118,6 +118,12 @@ function convertColumn(cellString){
   return col;
 }
 
+//## Challenge #6
+//Okay, let's get our lighthouse actually doing some work! As the lighthouse keeper, sometimes you'll need to shine the light directly 
+//on a particular cell in the grid, to alert passing ships to a danger there.
+//Your job is to write a function called lightCell() that takes in the coordinates in the form of 'A3' or 'J9' and returns the contents 
+//of that specific cell. (Ex: lightCell('B4'); would return "")
+
 // Day 6 // Day 12 enhancements
 // cellString ex.: "A3" or "C4" or "D8" 
 function lightCell(cellString){ 
@@ -130,6 +136,12 @@ function lightCell(cellString){
     return false
   } 
 }
+
+//## Challenge #7
+//In the area where the lighthouse is watching, the grid, there are many rocks which ships would need to avoid. Rocks are indicated 
+//with the ^ symbol on the grid.
+//Write a function called isRock() which will take in a coordinate in the form of 'C7' and return a true or a false boolean value 
+//depending on whether there is a rock in that cell or not. (Example: isRock('D1'); would return true)
 
 // Day 7
 // cellString ex.: "A3" or "C4" or "D8" 
@@ -145,6 +157,12 @@ function isRock(cellString){
   return cellCompareStr(cellString, rock);
 }
 
+//## Challenge #8
+//There are also areas where the currents are too strong for boats to be effective, and boats run the risk of being smashed up against 
+//the rocks if they get caught here. Strong currents are indicated with the ~ symbol.
+//Write a function called isCurrent() which will take in a coordinate in the form of 'A4' and return a true or a false boolean value 
+//depending on whether there is a strong current in that cell or not. (Example: isCurrent('E2'); would return true)
+
 // Day 8
 // cellString ex.: "A3" or "C4" or "D8" 
 function isCurrent(cellString){ 
@@ -152,6 +170,12 @@ function isCurrent(cellString){
   return cellCompareStr(cellString, current);
 }
   
+//## Challenge #9
+//And last, but certainly not least, there are cells with ships in them! We need to be able to query any cell in our GRID area and find 
+//out if it is occupied by a ship.
+//Write a function called isShip() which will take in a coordinate in the form of 'I9' and return a true or a false boolean value 
+//depending on whether there is a ship in that cell or not. (Example: isShip('B3') would return true)
+
 // Day 9
 // cellString ex.: "A3" or "C4" or "D8" 
 function isShip(cellString){ 
@@ -159,11 +183,21 @@ function isShip(cellString){
   return cellCompareStr(cellString, ship);
 }
 
+//## Challenge #10
+//Your next job is to write a function so that your lighthouse can sweep a whole row of cells.
+//Write a function named lightRow() that takes in the number of the row and returns its contents. 
+//(Example: lightRow(2); would return ["", "", "v", "", "~", "", "", "", "", ""])
+
 // Day 10
 function lightRow(rowIndex){ 
   var row = GRID[rowIndex - 1];
   return row;
 }
+
+//## Challenge #11
+//Now that you can return the contents of the cells of a row, we also need to be able to return the cells of a column.
+//Write a function called lightColumn() that takes in the letter of the column from the grid, and returns an array that is the contents 
+//of that grid column. (Ex: lightColumn('C'); would return ["", "v", "", "", "", "", "", "~", "", ""])
 
 // Day 11
 function lightColumn(colLetter){ 
@@ -176,6 +210,21 @@ function lightColumn(colLetter){
   }
   return col;
 }
+
+//## Challenge #12
+//The weekend lighthouse operator isn't as smart as you are, and sometimes tells the Lighthouse9000™ system to do invalid things, 
+//causing the repairman to have to come out and fix the lighthouse. Upgrade the lightCell() method so that if an invalid cell is passed 
+//in, it returns false. (Example: lightCell('Z3'); would return false as would lightCell('A11');)
+
+// Day 12
+// --see Day 6--
+
+//## Challenge #13
+//Environment Canada has called and wants a report sent to them of all the rocks and currents in your grid, for use in their latest map.
+//Write a function called allRocks() which when called will return an array of the coordinates of all the rocks in your grid. 
+//(Example: allRocks() should return ['D1', 'E3', 'F3', 'E4', 'F4', 'B8', 'H8', 'B9', 'B10'])
+//Write a function called allCurrents() which, when called, will return an array of the coordinates of all the strong currents in your 
+//grid. (Example: allCurrents() should return ['E2', 'C8', 'D8', 'D9', 'E9', 'E10', 'F10'])
 
 // Day 13
 function allRocks(){ 
@@ -210,7 +259,6 @@ function allCurrents(){
   return currents;
 }  
 
-
 function columnOfIndex(columnIndex){
 	return String.fromCharCode(65 + parseInt(columnIndex));
 }
@@ -232,6 +280,11 @@ function allRocksAlt(){
   });
 }
 
+//## Challenge #14
+//While we are reporting on things, let's make a report for all of the ships in our area. This one is for Transport Canada, as they 
+//are the ones watching all the movements of ships.
+//Write a function called allShips() which, when called, will return an array of the coordinates of all the ships in your grid.
+
 // Day 14
 function allShips(){ 
   var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -248,6 +301,8 @@ function allShips(){
   }  
   return ships;
 }
+
+
 
 // Day 15
 function firstRock() {
