@@ -420,3 +420,32 @@ function safetyReport(){
   }  
   return gridSafety;
 }
+
+//## Challenge #21
+//Ship captains have heard of your prowess and want to know the length of their routes through your grid.
+//Write a function called calcDistance() which will take two coordinates in the form of 'A3' and calculate 
+//the distance between the two points using the formula described here:
+//https://www.calculatorsoup.com/calculators/geometry-plane/distance-two-points.php
+
+//Day 21
+function extractX(cellString) {
+  let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  let colChar = cellString.charAt(0);
+  let col = letters.indexOf(colChar);
+  return col + 1;
+}
+
+function extractY(cellString) {
+  let row = Number(cellString.substring(1))-1;
+  return row + 1;
+}
+
+function calcDistance(cellString1, cellString2){ 
+  let x1 = extractX(cellString1);
+  let y1 = extractY(cellString1)
+  let x2 = extractX(cellString2);
+  let y2 = extractY(cellString2)
+  let distance = Math.sqrt(Math.pow(x2 - x1 , 2) + Math.pow(y2 - y1 , 2));
+  return distance.toFixed(2);
+}
+
